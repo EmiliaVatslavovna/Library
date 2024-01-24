@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Book>
+
+@{
+    ViewData["Title"] = "Book List";
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <h3>@ViewData["Title"]</h3>
+    <p>
+        <a asp-action="Create" class="btn btn-primary btn-sm">Create New Book</a>
+    </p>
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Genre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Authors.Name)
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+           @if(Model != null && Model.Any())
+            {
+                @foreach(var book in Model)
+                {               
+                    <tr>
+                                <td>
+                                    @Html.DisplayFor(model => book.Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => book.Genre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => book.Authors.Name)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-success btn-sm">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                    </tr>                        
+                }
+            }
+            else
+            {
+                <tr>
+                    <td cplspan="4">
+                        There are no books.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+else
+{
+    <h3>@ViewData["Title"]</h3>    
+    <table class="table table-bordered table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Genre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Authors.Name)
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => book.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => book.Genre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => book.Authors.Name)
+                        </td>
+                    </tr>
+                }
+            }      
+        </tbody>
+    </table>      
+}

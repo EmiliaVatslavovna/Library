@@ -1,0 +1,274 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<link rel="stylesheet" href="~/@(nameof(MyLibrary)).styles.css" />
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <h1>Hi Admin</h1>
+}
+else
+{    
+    <main>
+            <section class="welcome">
+                <h3>
+                    Welcome
+                    <br>
+                    to the Brooklyn
+                    <br>
+                    Library
+                </h3>
+            </section>
+            <section class="about" id="about">
+                <h2 class="sectionTitle">About</h2>
+                <p class="about-intro">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside.</p>
+                <div class="bodyContainer">
+                    <div class="wrapper">
+                        <div class="carousel">
+                            <img
+                                src="/css/assetsHome/img/about1.png"
+                                alt="about1"
+                                id="about1"
+                                class="about1" />
+                        <img src="/css/assetsHome/img/about2.png"
+                                alt="about2"
+                                id="about2"
+                                class="about2" />
+                        <img src="/css/assetsHome/img/about3.png"
+                                alt="about3"
+                                id="about3"
+                                class="about3" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="favorites" id="favorites">
+                <h2 class="sectionTitle">Favorites</h2>
+                <hr>
+                <p style="font-family: 'Inter', sans-serif; font-weight: bold; font-size: 20px; padding: 40px 20px 20px 0px;">
+                    Pick favorites of season
+                </p>
+                <div class="pictures">
+                    <div class="picturesItem">
+                        <div class="picturesPosition">
+                            <h5 class="picturesTitle">Staff Picks</h5>
+                            <hr>
+                            <p class="book">The Book Eaters</p>
+                            <p class="author">By Sunyi Dean</p>
+                            <p class="mean">
+                                An unusual sci-fi story about a book eater woman who tries desperately to save
+                            her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional
+                            family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint
+                            of heart.
+                            </p>
+                            <div class="cover">
+                                <img src="/css/assetsHome/img/eaters.png" alt="The Book Eaters">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="picturesItem">
+                        <div class="picturesPosition">
+                            <h5 class="picturesTitle">Staff Picks</h5>
+                            <hr>
+                            <p class="book">Cackle</p>
+                            <p class="author">By Rachel Harrison</p>
+                            <p class="mean">
+                                Are your Halloween movies of choice The Witches of Eastwick and Practical Magic?
+                            Look no further than here - where a woman recovering from a breakup moves to a quaint town
+                            in upstate New York and befriends a beautiful witch.
+                            </p>
+                            <div class="cover">
+                            <img src="/css/assetsHome/img/cackle.png" alt="Cackle">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="picturesItem">
+                        <div class="picturesPosition">
+                            <h5 class="picturesTitle">Staff Picks</h5>
+                            <hr>
+                            <p class="book">Dante: Poet of the Secular World</p>
+                            <p class="author">By Erich Auerbach</p>
+                            <p class="mean">
+                                Auerbach's engaging book places the 'Comedy' within the tradition of epic,
+                            tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the
+                            individual and his drama of soul into something of divine significance — an inspired
+                            introduction to Dante's main themes.
+                            </p>
+                            <div class="cover">
+                            <img src="/css/assetsHome/img/dante.png" alt="Dante">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="picturesItem">
+                        <div class="picturesPosition">
+                            <h5 class="picturesTitle">Staff Picks</h5>
+                            <hr>
+                            <p class="book">The Last Queen</p>
+                            <p class="author">By Clive Irving</p>
+                            <p class="mean">
+                                A timely and revelatory new biography of Queen Elizabeth (and her family)
+                            exploring how the Windsors have evolved and thrived as the modern world has changed around
+                            them.
+                            </p>
+                            <div class="cover">
+                            <img src="/css/assetsHome/img/queen.png" alt="The Last Queen">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="coffee" id="coffee">
+                <h2 class="sectionTitle">Coffee Shop</h2>
+                <hr>
+                <p style="line-height: 40px; padding: 40px 10px 0px; font-size: 20px; letter-spacing: 2px;">
+                    In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and
+                friendly
+                conversation.
+                    <br>
+                    You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also
+                you can try desserts from bakery.
+                </p>
+                <div class="coffeeContainer">
+                    <div class="coffeeTea">
+                        <h3>Coffee & Tea</h3>
+                        <div class="menuItem">
+                            <p class="drinks">Cold Brew Coffee</p>
+                            <div class="line"></div>
+                            <p class="price">$3</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="drinks">French Press Pot</p>
+                            <div class="line"></div>
+                            <p class="price">$5</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="drinks">Espresso</p>
+                            <div class="line"></div>
+                            <p class="price">$2</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="drinks">Cappuccino</p>
+                            <div class="line"></div>
+                            <p class="price">$4</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="drinks">Hot Tea</p>
+                            <div class="line"></div>
+                            <p class="price">$2</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="drinks">Cold Tea</p>
+                            <div class="line"></div>
+                            <p class="price">$2</p>
+                        </div>
+                    </div>
+                    <div class="dessertsCakes">
+                        <h3>Desserts & Cakes</h3>
+                        <div class="menuItem">
+                            <p class="meals">Forest Gateau</p>
+                            <div class="line"></div>
+                            <p class="price">$16</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="meals">Blue Moon</p>
+                            <div class="line"></div>
+                            <p class="price">$16</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="meals">Truffle Cake</p>
+                            <div class="line"></div>
+                            <p class="price">$16</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="meals">Chocolate Cake</p>
+                            <div class="line"></div>
+                            <p class="price">$18</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="meals">Poet Dream Cake</p>
+                            <div class="line"></div>
+                            <p class="price">$16</p>
+                        </div>
+                        <div class="menuItem">
+                            <p class="meals">Pineapple Cake</p>
+                            <div class="line"></div>
+                            <p class="price">$14</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="contacts" id="contacts">
+                <h2 class="sectionTitle">Our Contacts</h2>
+                <hr>
+                <div class="contactsContainer">
+                    <div class="contactsInfo">
+                        <p class="contactsInner">For All Library Inquiries:</p>
+                        <p class="text">
+                            Please Call
+                            <a class="text" href="tel:+16177302370">(617) 730-2370</a>
+                        </p>
+                        <p class="text">
+                            For TTY Service, Please Call
+                            <a class="text" href="tel:+16177302370">
+                                (617)
+                            730-2370
+                            </a>
+                        </p>
+                        <p class="text">
+                            Putterham Library:
+                            <a class="text" href="tel:+16177302385">(617) 730-2385</a>
+                        </p>
+                        <p class="contactsInner">Senior Staff</p>
+                        <p class="text">
+                            Library Director:
+                            <a class="contactsInner" href="mailto:AmandaHirst@gmail.com">
+                                Amanda
+                            Hirst
+                            </a>
+                        </p>
+                    </div>
+                <img src="/css/assetsHome/img/map.png" alt="map">
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="frame">
+                <div class="frameUp">
+                    <a class="frameLeft" href="https://goo.gl/maps/qvSpia9edm7h58Hw5">
+                        286 Cadman Plaza, New York,
+                        <br>
+                        NY 11238, United States
+                    </a>
+                    <h3 class="frameRight">
+                        Mon - Fri
+                        <br>
+                        08:00 am - 07:00 pm
+                    </h3>
+                </div>
+                <div class="frameDown">
+                    <h3 class="frameRight">
+                        Sat - Sun
+                        <br>
+                        10:00 am - 06:00 pm
+                    </h3>
+                </div>
+            </div>
+            <hr>
+            <div class="footerRss">
+                <h3 class="footerLink">2023</h3>
+                <a class="footerLink" href="https://github.com/EmiliaVatslavovna">EmiliaVatslavovna</a>
+            </div>
+        </footer>
+        
+        <link rel="stylesheet" type="text/css" href="/slick/slick.css">
+}
+
